@@ -1,4 +1,4 @@
--- Exercise 1
+-- 1.1
 
 Prelude Data.Ratio> 5 + 8
 13
@@ -31,4 +31,11 @@ Prelude Data.Ratio> floor 3.7
 Prelude Data.Ratio> ceiling 3.3
 4
 
--- Exercise 2 
+-- 1.2 
+Prelude Data.Ratio> let x = 1
+Prelude Data.Ratio> :show bindings
+it :: Integer = 4
+x :: Integer = 1
+
+-- 1.3
+
