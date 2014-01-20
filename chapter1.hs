@@ -37,5 +37,36 @@ Prelude Data.Ratio> :show bindings
 it :: Integer = 4
 x :: Integer = 1
 
--- 1.3
+-- 1.3 and 1.4
+see WC.hs
 
+-- Haskell supports partial function application
+compare 2 4
+-- LT
+let gt2 = compare(2)
+gt2 4
+-- LT
+
+-- List operations
+head [1,2,3] 
+-- 1
+tail [1,2,3]
+-- [2,3]
+
+
+-- the lower case 'a' here is a "type variable",
+-- much like a generic I suppose
+:type head
+-- head :: [a] -> a
+
+
+
+
+
+
+
+
+
+
+
+ 
