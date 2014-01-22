@@ -54,12 +54,23 @@ tail [1,2,3]
 -- [2,3]
 
 
--- the lower case 'a' here is a "type variable",
--- much like a generic I suppose
+-- the lower case 'a' here is a "type variable", much like a generic.
 :type head
 -- head :: [a] -> a
 
 
+-- tuples are fixed size
+:type (1964, "test")
+-- (1964, "test") :: Num t => (t, [Char])
+
+-- an empty tuple () is a "unit"
+
+-- a tuple's type signature dictates the order of elements
+-- therefore, these two tuples are not the same type
+:type (False, 'a') 
+-- (False, 'a') :: (Bool, Char)
+:type ('a', False)
+-- ('a', False) :: (Char, Bool)
 
 
 
