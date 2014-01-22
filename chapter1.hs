@@ -72,8 +72,38 @@ tail [1,2,3]
 :type ('a', False)
 -- ('a', False) :: (Char, Bool)
 
+-- 2.1
+:type False
+-- False :: Bool
+:type (["foo", "bar"], 'a')
+-- (["foo", "bar"], 'a') :: ([[Char]], Char)
+:type [(True, []), (False, [['a']])]
+-- [(True, []), (False, [['a']])] :: [(Bool, [[Char]])]
 
 
+-- take and drop return from either direction
+take 2 [1, 2, 3, 4]
+-- [1,2]
+drop 1 [1, 2, 3, 4]
+-- [2,3,4]
+
+-- first and second for tuples only
+fst (1, 2)
+-- 1
+snd (1, 2)
+-- 2
+
+-- both fst and snd only accept two-element tuples, restrictive much?
+:type fst 
+-- fst :: (a, b) -> a
+
+-- functions cannot (at all?) be defined in the ghci, so must
+-- be written in files and loaded thusly
+:load add.hs
+-- [1 of 1] Compiling Main             ( add.hs, interpreted )
+-- Ok, modules loaded: Main.
+add 1 2
+-- 3
 
 
 
