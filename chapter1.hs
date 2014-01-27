@@ -120,6 +120,14 @@ myDrop (-2) "foo"
 -- (||) :: Bool -> Bool -> Bool
 
 
+-- BY DEFAULT EVERYTHING IS LAZY?!?!?!?!
+newOr True (length [1..] > 0)
+-- True
+
+-- Basically, this means the "conditional macros" benefit
+-- you get for free, all the time, a new conditional 
+-- is easy to make
+
 
 
 
