@@ -105,6 +105,20 @@ snd (1, 2)
 add 1 2
 -- 3
 
+:load myDrop.hs
+-- [1 of 1] Compiling Main             ( myDrop.hs, interpreted )
+-- Ok, modules loaded: Main.
+myDrop 2 "foobar"
+-- "obar"
+myDrop (-2) "foo"
+-- "foo"
+
+
+:type null
+-- null :: [a] -> Bool
+:type (||)
+-- (||) :: Bool -> Bool -> Bool
+
 
 
 
