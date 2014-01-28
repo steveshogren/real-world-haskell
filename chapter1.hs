@@ -128,8 +128,23 @@ newOr True (length [1..] > 0)
 -- you get for free, all the time, a new conditional 
 -- is easy to make
 
+-- 2.1 
 
+-- last :: [a] -> a
+-- this function can only return a single value of type 'a', 
+-- which is the same as the list
 
+-- 2.2
+lastButOne xs = if length xs == 2 
+                then head xs
+                else lastButOne (tail xs)
+
+lastButOne [1,2,3,4]
+-- 3
+lastButOne []
+-- *** Exception: Prelude.tail: empty list
+lastButOne [1] 
+-- *** Exception: Prelude.tail: empty list
 
 
  
