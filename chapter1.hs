@@ -139,6 +139,7 @@ lastButOne xs = if length xs == 2
                 then head xs
                 else lastButOne (tail xs)
 
+-- 2.3
 lastButOne [1,2,3,4]
 -- 3
 lastButOne []
