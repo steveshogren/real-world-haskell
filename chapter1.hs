@@ -149,3 +149,17 @@ lastButOne [1]
 
 
  
+myInfo
+-- Book 98098098 "Programming" ["Richard bird","oege de moor"]
+:type myInfo
+-- myInfo :: BookInfo
+:type Book 1 "test" ["hat"]
+-- Book 1 "test" ["hat"] :: BookInfo
+:info BookInfo
+-- data BookInfo = Book Int String [String]
+  	-- Defined at bookstore.hs:3:6
+-- instance Show BookInfo -- Defined at bookstore.hs:4:27
+:type Book
+-- Book :: Int -> String -> [String] -> BookInfo
+
+-- The Book function is the "constructor" for the BookInfo type
