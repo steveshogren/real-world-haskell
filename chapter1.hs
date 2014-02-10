@@ -174,3 +174,27 @@ CreditCard "23423408" "Some Dude" ["Dickens", "England"]
 -- CreditCard "23423408" "Some Dude" ["Dickens","England"]
 :type it
 -- it :: BillingInfo
+
+-- this happens because Invoice requires a CustomerID to 
+-- be constructed correctly, without it, nadda
+Invoice
+--<interactive>:103:1-7:
+--    No instance for (Show (CustomerID -> BillingInfo))
+--      arising from a use of `print'
+--    Possible fix:
+--      add an instance declaration for (Show (CustomerID -> BillingInfo))
+--    In a stmt of an interactive GHCi command: print it
+
+
+
+
+-- the == function requires two matching types
+-- for its arguments
+Cartesian2D (sqrt 2) (sqrt 2) == Polar2D (pi / 4) 2
+-- <interactive>:107:34-51:
+--    Couldn't match expected type `Cartesian2D'
+--                with actual type `Polar2D'
+--    In the return type of a call of `Polar2D'
+--    In the second argument of `(==)', namely `Polar2D (pi / 4) 2'
+--    In the expression:
+--      Cartesian2D (sqrt 2) (sqrt 2) == Polar2D (pi / 4) 2
