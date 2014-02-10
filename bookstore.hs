@@ -24,3 +24,17 @@ data BetterReview = BetterReview BookInfo CustomerID ReviewBody
 -- here is a synonym for a verbose type
 -- the Type is a tuple of a BookInfo and a BookReview
 type BookRecord = (BookInfo, BookReview)
+
+
+-- algebraic data types for billing
+type CardHolder = String
+type CardNumber = String
+type Address = [String]
+
+-- This explains that BillingInfo can have three
+-- sets of possible values
+data BillingInfo = CreditCard CardNumber CardHolder Address
+                 | CashOnDelivery
+                 | Invoice CustomerID
+                   deriving (Show)
+

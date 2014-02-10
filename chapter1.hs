@@ -163,3 +163,14 @@ myInfo
 -- Book :: Int -> String -> [String] -> BookInfo
 
 -- The Book function is the "constructor" for the BookInfo type
+
+
+:load bookstore
+-- [1 of 1] Compiling Main             ( bookstore.hs, interpreted )
+-- Ok, modules loaded: Main.
+:type CreditCard
+-- CreditCard :: CardNumber -> CardHolder -> Address -> BillingInfo
+CreditCard "23423408" "Some Dude" ["Dickens", "England"]
+-- CreditCard "23423408" "Some Dude" ["Dickens","England"]
+:type it
+-- it :: BillingInfo
