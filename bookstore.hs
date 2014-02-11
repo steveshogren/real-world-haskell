@@ -52,3 +52,15 @@ type Vector = (Double, Double)
 data Shape = Circle Vector Double
            | Poly [Vector]
 
+-- pattern matching to access the Book elements
+bookID (Book id title authors) = id
+bookTitle (Book id title authors) = title 
+bookAuthors (Book id title authors) = authors 
+
+-- the _ just doesn't match or name that value
+nicerID (Book id _ _) = id
+nicerTitle (Book _ title _) = title 
+nicerAuthors (Book _ _ authors) = authors 
+
+
+
