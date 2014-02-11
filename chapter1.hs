@@ -198,3 +198,9 @@ Cartesian2D (sqrt 2) (sqrt 2) == Polar2D (pi / 4) 2
 --    In the second argument of `(==)', namely `Polar2D (pi / 4) 2'
 --    In the expression:
 --      Cartesian2D (sqrt 2) (sqrt 2) == Polar2D (pi / 4) 2
+
+
+-- If we just reason about the values without a type
+-- the compiler will allow us to
+(1, 2) == (1, 2) 
+-- True

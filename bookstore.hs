@@ -38,3 +38,17 @@ data BillingInfo = CreditCard CardNumber CardHolder Address
                  | Invoice CustomerID
                    deriving (Show)
 
+data Roygbiv = Red
+             | Orange
+             | Yellow
+             | Green
+             | Blue
+             | Indigo
+             | Violet
+               deriving (Eq, Show)
+
+
+type Vector = (Double, Double)
+data Shape = Circle Vector Double
+           | Poly [Vector]
+
