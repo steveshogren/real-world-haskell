@@ -1,3 +1,22 @@
+crapdeposit value account = account + value
+crapwithdraw value account = account - value
+
+crapeligible :: (Num a,Ord a) => a -> Bool
+crapeligible account = 
+       let account1 = crapdeposit 100 account in
+          if (account1 < 0) 
+          then False
+          else 
+            let account2 = crapwithdraw 200 account1 in
+               if (account2 < 0) 
+               then False
+               else 
+                    let account3 = crapdeposit 100 account2 in
+                       if (account3 < 0) 
+                       then False
+                       else True
+          
+
 deposit value account = Just (account + value)
 withdraw value account = if (account < value) 
                          then Nothing
@@ -10,6 +29,8 @@ eligible account =
        return True
 
 main = do
+       print $ crapeligible 300
+       print $ crapeligible 50 
        print $ eligible 300
        print $ eligible 50 
 
