@@ -19,7 +19,9 @@ crapeligible account =
           
 
 -- Shorter way using Maybe monads 
+deposit :: (Num a) => a -> a -> Maybe a
 deposit value account = Just (account + value)
+withdraw :: (Num a, Ord a) => a -> a -> Maybe a
 withdraw value account = if (account < value) 
                          then Nothing
                          else Just (account - value)
@@ -31,12 +33,30 @@ desugaredeligible account = do
        account3 <- deposit 100 account2
        Just True
 
--- The highly sugared built in language feature version using >>=
+-- The highly sugared built in language feature version using >>= monad function
+eligible :: (Num a, Ord a) => a -> Maybe Bool
 eligible account = 
        deposit 100 account >>=
        withdraw 200 >>= 
        deposit 100 >>
        return True
+
+-- Each of the deposit 100 account is really ((deposit 100) account)
+--       deposit 100 account >>= withdraw 200  
+-- The "withdraw 200" isn't invalid, because it's a partial funcion application
+-- and the monad will evaluate the first argument "deposit 100 account"
+-- then if Nothing, return Nothing, otherwise pass the inner Just(x) "x" value
+-- into the partial function created by (deposit 100)
+
+--instance Monad Maybe where
+      -- This is epic, it defers evaling the second parameter because of 
+      -- the _ pattern match, it just automatically passes along a Nothing
+--    Nothing >>= _ = Nothing
+
+      -- Also epic, this expands out the inner 'x' and passes it along to the next
+--    (Just x) >>= f = f x
+
+--    return x = Just x
 
 main = do
        print $ crapeligible 300
